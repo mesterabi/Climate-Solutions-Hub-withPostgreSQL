@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Climate Solutions</title>
+    <link rel="stylesheet" href="/css/main.css" />
+</head>
+<body class="bg-base-300 min-h-screen flex flex-col">
+    <%- include('partials/navbar', {page: '/solutions/projects'}) %>
+  
+    <div class="container mx-auto flex-grow">
+        <div class="hero bg-neutral-300 rounded-lg p-6">
+            <div class="hero-content text-center">
+              <div class="max-w-md">
+                <h1 class="text-5xl font-bold">Projects</h1>
+                <p class="py-6">Browse the current list of Projects in our database. Click the theme to filter by sectors such as:</p>
+                <a href="/solutions/projects?sector=industry" class="btn btn-neutral btn-xs">Industry</a>
+                <a href="/solutions/projects?sector=transportation" class="btn btn-neutral btn-xs">Transportation</a>
+                <a href="/solutions/projects?sector=electricity" class="btn btn-neutral btn-xs">Electricity</a>
+              </div>
+            </div>
+        </div>
+
+        <div class="overflow-x-auto overflow-y-hidden p-5 bg-base-300">
+            <table class="table table-zebra w-full">
+                <tbody>
+                    <% data.forEach(project => { %>
+                        <tr>
+                            <td><span class="font-bold"><%= project.title %></span></td>
+                            <td><a href="/solutions/projects?sector=<%= project.Sector.sector_name %>" class="btn btn-neutral mt-2 btn-xs"><%= project.Sector.sector_name %></a></td>
+                            <td><%= project.summary_short %></td>
+                            <td><a href="/solutions/projects/<%= project.id %>" class="btn btn-neutral btn-xs">details</a></td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
