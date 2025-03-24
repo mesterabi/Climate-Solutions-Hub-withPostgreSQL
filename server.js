@@ -1,3 +1,15 @@
+/********************************************************************************
+* WEB322 – Assignment 05
+* 
+* I declare that this assignment is my own work in accordance with Seneca's
+* Academic Integrity Policy:
+* 
+* https://www.senecapolytechnic.ca/about/policies/academic-integrity-policy.html
+* 
+* Name: Mobina Esterabi Student ID: 164768236  Date: 03/24/25
+*
+********************************************************************************/
+
 require("dotenv").config();
 const express = require("express");
 const path = require('path');

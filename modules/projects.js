@@ -2,7 +2,7 @@ require('dotenv').config();
 require('pg');
 const Sequelize = require('sequelize');
 
-// Sequelize connection using connection string from .env
+// Sequelize connection
 const sequelize = new Sequelize(process.env.PG_CONNECTION_STRING, {
     dialect: 'postgres',
     dialectOptions: {
