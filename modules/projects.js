@@ -75,7 +75,7 @@ async function initialize() {
 
         // Reset the sequence to the maximum id + 1
         const [maxIdResult] = await sequelize.query('SELECT MAX(id) as max_id FROM "Projects"');
-        const maxId = maxIdResult[0].max_id || 0; // Default to 0 if table is empty
+        const maxId = maxIdResult[0].max_id || 0;
         await sequelize.query(`ALTER SEQUENCE "Projects_id_seq" RESTART WITH ${maxId + 1}`);
         console.log(`Reset Projects_id_seq to start at ${maxId + 1}`);
 
